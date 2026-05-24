@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as api from '../services/api';
 import './Auth.scss';
@@ -14,7 +14,7 @@ function SignUp() {
     e.preventDefault();
     try {
       await api.signup({ name, email, password });
-      // Redirect to login after successful signup
+      
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Error creating account. Please try again.');
